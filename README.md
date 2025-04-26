@@ -20,3 +20,42 @@ Now that we had the final dataset, our next step was preprocdessing. The Jupyter
 1. Loads augmented images from `DATASET/TRAIN/`.
 2. Resizes and normalizes images.
 3. Constructs input (X) and output (Y) matrices.
+
+
+## BlazePose Preprocessing
+Once the final dataset was prepared, we extracted pose landmarks using **MediaPipe BlazePose**.
+This step focused on representing each image with a 99-dimensional feature vector (x, y, z coordinates for 33 keypoints).
+
+The preprocessing steps (in notebooks/data_preprocessing.ipynb) included:
+- Loading images from DATASET/TRAIN/, DATASET/VALIDATION/, and DATASET/TEST/
+- Running BlazePose landmark detection
+- Constructing input matrices (X) and output labels (Y)
+- Saving the processed data as .npy files for efficient loading
+
+**Final processed dataset shapes:**
+1. Train: (6119, 99)
+2. Validation: (277, 99)
+3. Test: (465, 99)
+
+## Model Training and Evaluation
+We built and compared two models:
+
+### 1. Baseline Model (Random Forest Classifier)
+- Trained on the BlazePose landmark features.
+- Achieved a **Validation Accuracy** of **85.56%**.
+- Provided a strong benchmark for comparison.
+
+### 2. Deep Learning Model (Neural Network)
+- 3 Dense layers with ReLU activations and Dropout regularization.
+- Trained on the same BlazePose landmark features.
+- Achieved:
+  - **Validation Accuracy:** ~94%
+  - **Test Accuracy:** ~97.63%
+
+## Results
+  | Model               | Validation Accuracy | Test Accuracy |
+|---------------------|----------------------|---------------|
+| Random Forest       | 85.56%               | N/A           |
+| Neural Network (NN) | ~94%                 | 97.63%        |
+
+

@@ -55,7 +55,7 @@ We built and compared two models:
 ## Results
   | Model               | Validation Accuracy | Test Accuracy |
 |---------------------|----------------------|---------------|
-| Random Forest       | 85.56%               | N/A           |
+| Logistic Regression       | 85.56%               | N/A           |
 | Neural Network (NN) | ~94%                 | 97.63%        |
 
 

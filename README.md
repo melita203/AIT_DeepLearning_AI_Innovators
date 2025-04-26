@@ -40,7 +40,7 @@ The preprocessing steps (in notebooks/data_preprocessing.ipynb) included:
 ## Model Training and Evaluation
 We built and compared two models:
 
-### 1. Baseline Model (Random Forest Classifier)
+### 1. Baseline Model (Logistic Regression)
 - Trained on the BlazePose landmark features.
 - Achieved a **Validation Accuracy** of **85.56%**.
 - Provided a strong benchmark for comparison.

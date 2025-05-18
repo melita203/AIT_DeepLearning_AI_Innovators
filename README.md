@@ -13,7 +13,7 @@ This project aims to develop a yoga posture recognition model that can classify 
 We began by downloading a yoga pose dataset from Kaggle, which includes both training and testing images for five poses: Down Dog, Goddess, Plank, Tree, and Warrior II.
 📂 **Dataset source**: [Kaggle Yoga Pose Dataset](https://www.kaggle.com/datasets/niharika41298/yoga-poses-dataset?resource=download)  
 
-### 🔽 How to Get the Data:
+### How to Get the Data:
 1. Go to the [Kaggle Yoga Pose Dataset](https://www.kaggle.com/datasets/niharika41298/yoga-poses-dataset?resource=download) page.
 2. Download and extract the dataset ZIP file.
 3. Place the extracted folders in the following directory structure:
@@ -55,6 +55,7 @@ folder_path = 'DATASET/TRAIN/downdog'  # Path to original images
 output_folder = 'DATASET/TRAIN/downdog_augmented'  # Path to save augmented images
 
 save_augmented_images(folder_path, output_folder, num_augmented_images=5)
+```
 
 
 With these steps completed, we finalized our comprehensive yoga pose dataset, making it ready for preprocessing and model training. The final dataset is available in this repository.

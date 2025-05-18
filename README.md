@@ -10,9 +10,52 @@ With the growing popularity of home yoga, maintaining precise postures is essent
 This project aims to develop a yoga posture recognition model that can classify eight yoga poses from the static images. The long term goal is to extend this model for real time feedback and posture correction, helping users improve their alignment. The selected postures focus on back pain prevention and posture correction. 
 
 ## Data Preprocessing
-We began by downloading a yoga pose dataset from Kaggle, which includes both training and testing images for five poses: Down Dog, Goddess, Plank, Tree, and Warrior II. However, the largest training set contained only 252 images, which was insufficient for robust model training. To address this, we applied data augmentation techniques such as rotation, horizontal flipping, cropping, brightness and contrast adjustments, and scaling/resizing. This process expanded our dataset significantly, generating eight unique images from each original image.
+We began by downloading a yoga pose dataset from Kaggle, which includes both training and testing images for five poses: Down Dog, Goddess, Plank, Tree, and Warrior II.
+📂 **Dataset source**: [Kaggle Yoga Pose Dataset](https://www.kaggle.com/datasets/niharika41298/yoga-poses-dataset?resource=download)  
 
-Next, we partitioned the augmented training dataset to create a validation set. We transferred around 10% of the expanded training dataset for this purpose.
+### 🔽 How to Get the Data:
+1. Go to the [Kaggle Yoga Pose Dataset](https://www.kaggle.com/datasets/niharika41298/yoga-poses-dataset?resource=download) page.
+2. Download and extract the dataset ZIP file.
+3. Place the extracted folders in the following directory structure:
+
+project-root/
+│
+├── DATASET/
+│ ├── TRAIN/
+│ │ ├── downdog/
+│ │ ├── plank/
+│ │ └── ... (other class folders)
+│ └── TEST/
+│ └── ...
+├── dataaugmentation.py
+└── ...
+
+bash
+Copy
+Edit
+
+### Running Image Augmentation:
+To expand the dataset, use the `dataaugmentation.py` script. It applies a variety of transformations to each image, including:
+
+- Random rotation
+- Horizontal flip
+- Random cropping
+- Brightness adjustment
+- Contrast enhancement
+- Scaling/resizing
+
+#### How to Use:
+Open a Python script or notebook and run the following:
+
+```python
+from dataaugmentation import save_augmented_images
+
+# Example usage:
+folder_path = 'DATASET/TRAIN/downdog'  # Path to original images
+output_folder = 'DATASET/TRAIN/downdog_augmented'  # Path to save augmented images
+
+save_augmented_images(folder_path, output_folder, num_augmented_images=5)
+
 
 With these steps completed, we finalized our comprehensive yoga pose dataset, making it ready for preprocessing and model training. The final dataset is available in this repository.
 
@@ -55,7 +98,7 @@ We built and compared two models:
 ## Results
   | Model               | Validation Accuracy | Test Accuracy |
 |---------------------|----------------------|---------------|
-| Logistic Regression       | 85.56%               | N/A           |
+| Logistic Regression       | 85.56%               | ~94%           |
 | Neural Network (NN) | ~94%                 | 97.63%        |
 
 
